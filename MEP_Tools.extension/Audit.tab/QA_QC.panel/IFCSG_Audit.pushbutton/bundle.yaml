@@ -1,0 +1,13 @@
+title: IFC-SG Audit
+tooltip: >-
+  CORENET X / IFC-SG QA/QC for MEP models.
+
+  Checks Ducts, Pipes, Mechanical Equipment and Cable Trays for missing,
+  empty or placeholder IFC-SG parameters, runs a bounding-box clash pre-check
+  of ducts and pipes against structural framing and columns (including
+  linked models), colours every failure red in the 3D view
+  "QA_MEP_Compliance_Check" and saves a timestamped CSV report to the Desktop.
+
+  Shift+Click: edit the audit checklist (audit_config.json).
+author: Kuru-6g
+help_url: https://github.com/Kuru-6g/automation

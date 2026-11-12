@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Generated audit reports
+IFCSG_MEP_Audit_*.csv
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

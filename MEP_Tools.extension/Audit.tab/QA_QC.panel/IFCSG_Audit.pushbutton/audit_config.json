@@ -1,0 +1,53 @@
+{
+  "_readme": "IFC-SG MEP Auditor checklist. Keys starting with '_' are comments. Any key you delete falls back to the built-in default in script.py. Shift+Click the ribbon button to open this file.",
+
+  "_audit_categories": "Report label -> Revit BuiltInCategory name. Add e.g. \"Duct Fittings\": \"OST_DuctFitting\" to audit more categories.",
+  "audit_categories": {
+    "Ducts": "OST_DuctCurves",
+    "Pipes": "OST_PipeCurves",
+    "Mechanical Equipment": "OST_MechanicalEquipment",
+    "Cable Trays": "OST_CableTray"
+  },
+
+  "_required_parameters": "'*' applies to every category; other keys (matching the labels above) add category-specific parameters. Names are matched as shown in the Revit Properties palette (instance first, then type).",
+  "required_parameters": {
+    "*": ["Mark", "Comments", "SG_Asset_Code", "Fire_Rating"],
+    "Ducts": ["System Classification"],
+    "Pipes": ["System Classification"],
+    "Mechanical Equipment": ["System Classification"]
+  },
+
+  "_check_type_parameters": "If the instance value is blank, accept a value on the element's type (e.g. Fire_Rating stored as a type parameter).",
+  "check_type_parameters": true,
+
+  "_flag_parameters_not_found": "Report parameters that are not loaded/bound to the category at all, as '<name> [not found]'.",
+  "flag_parameters_not_found": true,
+
+  "_placeholder_values": "Text values treated as missing (case-insensitive).",
+  "placeholder_values": ["TBC", "TBA", "TBD"],
+
+  "clash_check": {
+    "enabled": true,
+    "mep_categories": ["Ducts", "Pipes"],
+    "structural_categories": ["OST_StructuralFraming", "OST_StructuralColumns"],
+    "include_linked_models": true,
+    "_bbox_inset_mm": "Shrinks each structural bounding box on every side so MEP that only touches the structure is not flagged.",
+    "bbox_inset_mm": 5.0
+  },
+
+  "qa_view": {
+    "name": "QA_MEP_Compliance_Check",
+    "fail_color_rgb": [255, 0, 0],
+    "halftone_passing_elements": true,
+    "_passing_transparency": "0-100. Makes passing elements see-through so failures stand out.",
+    "passing_transparency": 0
+  },
+
+  "report": {
+    "_output_folder": "Leave empty to save to the Desktop. Environment variables are allowed, e.g. %USERPROFILE%\\Documents\\BIM_QA",
+    "output_folder": "",
+    "failures_only": false,
+    "show_output_window": true,
+    "max_rows_in_output_window": 300
+  }
+}
